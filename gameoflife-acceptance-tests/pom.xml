@@ -3,7 +3,7 @@
     <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.8.8</version>
+        <version>0.8.8</version> <!-- Ensure you're using the latest stable version -->
         <executions>
             <execution>
                 <goals>
@@ -12,6 +12,8 @@
                 <configuration>
                     <!-- Add agent arguments to avoid instrumenting system classes -->
                     <argLine>-Djacoco.agent.skip=true</argLine>
+                    <includes>**/*.class</includes> <!-- Include only project classes -->
+                    <excludes>java/util/UUID.class</excludes> <!-- Exclude problematic classes -->
                 </configuration>
             </execution>
         </executions>
