@@ -12,8 +12,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <easyb.version>1.4</easyb.version>
         <cobertura.version>2.6</cobertura.version>
-        <sourceJdk>17.0.13</sourceJdk>
-        <targetJdk>17.0.13</targetJdk>
+        <sourceJdk>17</sourceJdk>
+        <targetJdk>17</targetJdk>
         <github.account>wakaleo</github.account>
         <thucydides.version>17.0.13</thucydides.version>
         <jelastic.context>gameoflife</jelastic.context>
@@ -42,14 +42,14 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>3.3.2</version> <!-- Updated version -->
+                <version>3.3.2</version>
             </plugin>
 
             <!-- Jacoco Plugin updated and system classes excluded -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.8</version> <!-- Updated Jacoco version -->
+                <version>0.8.8</version>
                 <executions>
                     <execution>
                         <id>jacoco-initialize</id>
@@ -76,7 +76,7 @@
             <!-- Surefire Plugin to run tests -->
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version> <!-- Updated version -->
+                <version>3.0.0-M5</version>
                 <configuration>
                     <skip>false</skip>
                     <includes>
@@ -202,7 +202,7 @@
                         <artifactId>maven-pmd-plugin</artifactId>
                         <version>3.2</version>
                         <configuration>
-                            <targetJdk>1.6</targetJdk>
+                            <targetJdk>17</targetJdk> <!-- Updated for JDK 17 -->
                             <aggregate>true</aggregate>
                             <format>xml</format>
                             <failOnViolation>true</failOnViolation>
@@ -212,7 +212,7 @@
 
                     <plugin>
                         <artifactId>findbugs-maven-plugin</artifactId>
-                        <version>2.4.0</version>
+                        <version>3.0.0</version> <!-- Updated to a newer version -->
                         <configuration>
                             <effort>Max</effort>
                             <xmlOutput>true</xmlOutput>
@@ -234,8 +234,8 @@
                         <artifactId>maven-compiler-plugin</artifactId>
                         <version>3.1</version>
                         <configuration>
-                            <source>1.7</source>
-                            <target>1.7</target>
+                            <source>17</source> <!-- Updated for JDK 17 -->
+                            <target>17</target> <!-- Updated for JDK 17 -->
                         </configuration>
                     </plugin>
                 </plugins>
