@@ -1,4 +1,5 @@
 <plugins>
+    <!-- Jacoco plugin to prepare the agent, avoiding system classes -->
     <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
@@ -8,20 +9,28 @@
                 <goals>
                     <goal>prepare-agent</goal>
                 </goals>
+                <configuration>
+                    <!-- Add agent arguments to avoid instrumenting system classes -->
+                    <argLine>-Djacoco.agent.skip=true</argLine>
+                </configuration>
             </execution>
         </executions>
     </plugin>
+
+    <!-- Maven Surefire Plugin for unit tests -->
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.9</version>
+        <version>2.22.2</version> <!-- Updated version -->
         <configuration>
             <skip>false</skip>
         </configuration>
     </plugin>
+
+    <!-- Maven Failsafe Plugin for integration tests -->
     <plugin>
         <artifactId>maven-failsafe-plugin</artifactId>
-        <version>2.10</version>
+        <version>2.22.2</version> <!-- Updated version -->
         <executions>
             <execution>
                 <id>integration-tests</id>
@@ -46,6 +55,8 @@
             </execution>
         </executions>
     </plugin>
+
+    <!-- Thucydides Maven plugin for reporting -->
     <plugin>
         <groupId>net.thucydides.maven.plugins</groupId>
         <artifactId>maven-thucydides-plugin</artifactId>
